@@ -1,9 +1,9 @@
-import type { Request as ExpressRequest, Response as ExpressResponse } from "express";
+import type { Request, Response } from "@tinyhttp/app";
 
-export const get = async (req: ExpressRequest, res: ExpressResponse): Promise<void> => {
-	res.end("you made a get request");
+export const get = async (req: Request, res: Response): Promise<void> => {
+  res.end("you made a get request");
 };
 
-export const post = async (req: ExpressRequest, res: ExpressResponse): Promise<void> => {
-	res.end("you made a post request");
+export const post = async (req: Request, res: Response): Promise<void> => {
+  res.end("you made a post request");
 };

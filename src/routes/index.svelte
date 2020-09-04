@@ -1,45 +1,47 @@
-<script>
-	import ExampleComponent from "../components/ExampleComponent.svelte";
-</script>
-
 <style>
-	.centerer {
-		flex: 1 1 0%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.button {
-		margin-top: 2.5rem;
-		padding: 0.75rem;
-		border-radius: 0.5rem;
-		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-		transition-property: background-color, color, box-shadow;
-		transition-duration: 200ms;
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		text-decoration: none;
-	}
-
-	.button:focus {
-		outline: 0;
-		box-shadow: 0 0 0 3px rgba(118, 169, 250, 0.45);
-	}
-
-	.button-pink {
-		color: #99154B;
-		background-color: #FAD1E8;
-	}
-
-	.button-pink:hover, .button-pink:focus {
-		background-color: #F8B4D9;
-	}
+  h1,
+  figure,
+  p {
+    text-align: center;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 2.8em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0 0 0.5em 0;
+  }
+  figure {
+    margin: 0 0 1em 0;
+  }
+  img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 0 1em 0;
+  }
+  p {
+    margin: 1em auto;
+  }
+  @media (min-width: 480px) {
+    h1 {
+      font-size: 4em;
+    }
+  }
 </style>
 
-<div class="centerer">
-	<ExampleComponent
-		title="🌐 Sapper with TypeScript and GraphQL project base"
-		paragraph="This is an example route and component to make sure everything's working." />
-	<a class="button button-pink" href="/graphql">Check out the GraphQL playground!</a>
-</div>
+<svelte:head>
+  <title>Sapper.ts - Home</title>
+</svelte:head>
+
+<h1>Sapper.TS</h1>
+
+<figure>
+  <img alt="Sapper TypeScript Cover" src="/cover.jpg" />
+  <figcaption>Have fun with Sapper!</figcaption>
+</figure>
+
+<p>
+  <strong>
+    Try editing this file (src/routes/index.svelte) to test live reloading.
+  </strong>
+</p>

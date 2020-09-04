@@ -21,6 +21,10 @@
         "typeRoots": [
             "types"
         ],
+        "baseUrl": ".",
+        "paths": {
+            "@typings/*": ["types/*"]
+        }
     },
     "include": [
         "src/**/*",

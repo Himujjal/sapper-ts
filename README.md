@@ -1,42 +1,29 @@
-<h1 align="center">🌐 Sapper with TypeScript and GraphQL project base</h1>
+<h1 align="center">Sapper.TS!</h1>
+
+<img src="./static/cover.jpg"/>
 
 ## ❓ What is this?
 
-This is an extension to the [official Sapper Rollup template](https://github.com/sveltejs/sapper-template-rollup) with TypeScript preprocessing and a GraphQL server through TypeGraphQL (Apollo Server).
+This is an extension to the [official Sapper Rollup template](https://github.com/sveltejs/sapper-template-rollup) with TypeScript. This boilerplate aims to be very basic without too many plugins! This boilerplate is a modified version of [Sapper-TS-GraphQL by Jacob Babich](https://github.com/babichjacob/sapper-typescript-graphql-template)
 
-If you're looking for something with much, much more bundled in, check out [my opinionated project base](https://github.com/babichjacob/sapper-firebase-typescript-graphql-tailwindcss-actions-template).
+If you're looking for something with much, much more bundled in, check out [Sapper-TS-GraphQL-Tailwind-Actions by Jacob Babich](https://github.com/babichjacob/sapper-firebase-typescript-graphql-tailwindcss-actions-template).
 
-- [Sapper for Svelte](https://sapper.svelte.dev/)
-  - [Official VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
-- [TypeScript](https://www.typescriptlang.org/)
-  - [TypeGraphQL](https://typegraphql.ml/)
-  - Inside Svelte components, thanks to [`svelte-preprocess`](https://github.com/kaisermann/svelte-preprocess)
-- [Progressive Web App (PWA)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps) best practices set up
-  - [`manifest.json`](https://developer.mozilla.org/en-US/docs/Web/Manifest)'s most important fields filled out
-  - High [Lighthouse](https://developers.google.com/web/tools/lighthouse) audit score
-- [ESLint](https://eslint.org/)
-  - [VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-  - `eslint:fix` package script
+### ‍🔧 Install
 
-## 📋 Copy
-
-Choose either to clone or fork depending on your preference.
-
-### 🐑 Clone
+> TIP: Use [PNPM](pnpm.js.org) instead of `npm` for faster installations. Install pnpm using `npm i -g pnpm`.
 
 ```sh
-git clone https://github.com/babichjacob/sapper-typescript-graphql-template
+git clone https://github.com/Himujjal/sapper-ts my-app
+cd my-app
+npm i
 ```
 
-### 🍴 Fork
-
-Click the `Use this template` button on [this project's GitHub page](https://github.com/babichjacob/sapper-typescript-graphql-template).
-
-### ⬇️ Install Dependencies
+For Pro Users: 🙃😎😉
 
 ```sh
-cd sapper-typescript-graphql-template
-npm install  # pnpm also works
+pnpx degit Himujjal/sapper-ts my-app
+cd my-app
+pnpm i
 ```
 
 ## 🛠 Usage
@@ -44,65 +31,62 @@ npm install  # pnpm also works
 ### 🧪 Development
 
 ```sh
-npm run dev
+npm run dev   # or `pnpm dev`
 ```
 
 ### 🔨 Building for Production
+
 If you do not need to include heavy Babel transforms and polyfills to support old browsers on your site, then remove the `--legacy` flag in the `sapper:build` package script to lighten it up.
+
 ```sh
-npm run prod
+npm run prod  # or `pnpm prod`
 ```
 
 ### 📦 Exporting a Static Site
+
 Your GraphQL server will not be exported with the rest of the site.
 
 If you do not need to include heavy Babel transforms and polyfills to support old browsers on your site, then remove the `--legacy` flag in the `export` package script to lighten it up.
+
 ```sh
-npm run export
+npm run export    # or `pnpm export`
 ```
 
 ## ⚙ Configuration
 
 ### ⚡ Web app
+
 Many of the fields in `static/manifest.json` (`short_name`, `name`, `description`, `categories`, `theme_color`, and `background_color`) are filled with demonstrative values that won't match your site. Similarly, you've got to take new screenshots to replace the included `static/screenshot-1.png` and `static/screenshot-2.png` files. If you want, you can add [app shortcut definitions for "add to home screen" on Android](https://web.dev/app-shortcuts/#define-app-shortcuts-in-the-web-app-manifest). Once you change `theme_color`, update the `meta name="theme-color"` tag in `src/template.html` to match.
 
-The [Apple touch icon](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html), favicon, and `logo-` files (also all in the `static` directory) are created by placing the logo within a "safe area" centered circle that takes up 80% of the canvas's dimension. For instance, the constraining circle in `logo-512.png` is 512 × 0.80 = 409.6 ≈ 410 pixels wide and tall. 
+The [Apple touch icon](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html), favicon, and `logo-` files (also all in the `static` directory) are created by placing the logo within a "safe area" centered circle that takes up 80% of the canvas's dimension. For instance, the constraining circle in `logo-512.png` is 512 × 0.80 = 409.6 ≈ 410 pixels wide and tall.
 
 ### 🗺 Source maps
+
 This project base comes with [source maps](https://blog.teamtreehouse.com/introduction-source-maps) enabled during development and disabled during production for the best compromise between performance and developer experience. You can change this behavior through the `sourcemap` variable in `rollup.config.js`.
 
-### 🕸 Optionally removing the GraphQL server
-1. Remove these lines in `src/server.ts`:
-    1. ```ts
-       import { createApolloServer } from "./graphql";
-       ```
-    2. ```ts
-       const apolloServer = await createApolloServer();
-       ```
-    3. ```ts
-       apolloServer.applyMiddleware({ app, path: graphqlPath });
-       ```
+## Help & Support!
 
-2. Remove the now-useless `graphqlPath` parameter to `createSapperAndApolloServer` in `src/server.ts`. This is also a good opportunity to rename the function since there is no longer an Apollo Server
+[Create an issue](https://github.com/Himujjal/sapper-ts/issues/new).
 
-3. Delete the `src/graphql` folder
+## Fix! There is something that needs improvement
 
-4. Uninstall the `apollo-server-express`, `bufferutil`, `class-validator`, `graphql`, `reflect-metadata`, `type-graphql`, and `utf-8-validate` packages
+[Create an issue](https://github.com/Himujjal/sapper-ts/issues/new) or [pull request](https://github.com/Himujjal/sapper-ts/pulls) and I'll try to fix.
 
-## 😵 Help! I have a question
+## ROADMAP:
 
-[Create an issue](https://github.com/babichjacob/sapper-typescript-graphql-template/issues/new) and I'll try to help.
+- [ ] Compression library for tinyhttp
+- [ ] Helmet support (Security headers)
 
-## 😡 Fix! There is something that needs improvement
+## Related Projects:
 
-[Create an issue](https://github.com/babichjacob/sapper-typescript-graphql-template/issues/new) or [pull request](https://github.com/babichjacob/sapper-typescript-graphql-template/pulls) and I'll try to fix.
-
-I'm sorry, because of my skill level and the fragility of (the combination of) some of these tools, there are likely to be problems in this project. Thank you for bringing them to my attention or fixing them for me.
+1. [Official Sapper Template (JS Only)](https://github.com/sveltejs/sapper-template-rollup)
+2. [Sapper-TS-GraphQL by Jacob Babich](https://github.com/babichjacob/sapper-typescript-graphql-template)
+3. [tinyhttp](https://github.com/talentlessguy/tinyhttp)
 
 ## 📄 License
 
-MIT
+[MIT](LICENSE)
 
 ---
 
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+This Repo 100% is completely inspired by Jacob Babich's boilerplate!
