@@ -1,6 +1,5 @@
 import * as sapper from "@sapper/server"; // eslint-disable-line import/no-unresolved
 import { App } from "@tinyhttp/app";
-import type { Request, Response } from "@tinyhttp/app";
 import { logger } from "@tinyhttp/logger";
 import sirv from "sirv";
 
@@ -12,9 +11,8 @@ const app = new App();
 
 const createSapper = async (): Promise<App> => {
 	app.use(
-		// compression({ threshold: 0 }),
-		logger({}),
 		sirv("static", { dev }),
+		logger(),
 		sapper.middleware(),
 	);
 
